@@ -11,10 +11,22 @@
  * @param {} values An immutable Map of values from Redux Form
  * @returns An errors object with any validation errors
  */
+
+const validData = (errors, item, length) => {
+  if (!item) {
+    errors.item = 'Required';
+  } else if (item.length < length) {
+    errors.item = `Must be at least ${length} characters`;
+  }
+};
+
 export const validate = (values) => {
   const errors = {};
 
   // TODO: Validate that the user has entered a username, first name, and last name
 
+  validData(errors, values.username, 8);
+  validData(errors, values.firstname, 3);
+  validData(errors, values.lastname, 2);
   return errors;
 };

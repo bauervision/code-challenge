@@ -19,7 +19,10 @@ const App = () => (
       titleTemplate="%s - React Code Challenge"
       defaultTitle="React Code Challenge"
     >
-      <meta name="description" content="Step 1: Complete code challenge, Step 2: Interview, Step 3: ???, Step 4: Profit!" />
+      <meta
+        name="description"
+        content="Step 1: Complete code challenge, Step 2: Interview, Step 3: ???, Step 4: Profit!"
+      />
     </Helmet>
 
     <Switch>

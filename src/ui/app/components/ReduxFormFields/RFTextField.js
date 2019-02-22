@@ -15,15 +15,25 @@ import TextField from '@material-ui/core/TextField';
 export const RFTextField = ({
   input,
   label,
-  meta: { touched, error },
+  meta: { touched, error, warning },
   ...custom
 }) => (
-  <TextField
-    label={label}
-    error={touched && error}
-    {...input}
-    {...custom}
-  />
+  <div className="center flex flex-column">
+    <TextField label={label} error={touched && error} {...input} {...custom} />
+    {touched &&
+      ((error && (
+        <span
+          style={{
+            fontSize: '0.8em',
+            textAlign: 'center',
+            fontStyle: 'italic'
+          }}
+        >
+          {error}
+        </span>
+      )) ||
+        (warning && <span>{warning}</span>))}
+  </div>
 );
 
 RFTextField.propTypes = {
@@ -31,6 +41,7 @@ RFTextField.propTypes = {
   label: PropTypes.string,
   meta: PropTypes.shape({
     touched: PropTypes.bool,
-    error: PropTypes.any
+    error: PropTypes.any,
+    warning: PropTypes.any
   }).isRequired
 };

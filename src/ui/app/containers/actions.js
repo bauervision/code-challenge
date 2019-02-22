@@ -6,11 +6,7 @@
 
 import { DISPATCH_ACTIONS } from './constants';
 
-export function getLuckyNumber(username) {
-  return {
-    type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER,
-    username
-  };
-}
-
-// TODO: Add more actions if needed
+export const getLuckyNumber = (username) => ({
+  type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER,
+  username
+});
